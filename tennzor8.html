@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+<img data-src="img1.jpg" src="1.jpg" class="blur">
+<img data-src="img2.jpg" src="2.jpg" class="blur">
+<img data-src="img3.jpg" src="3.jpg" class="blur">
+<img data-src="img4.jpg" src="4.jpg" class="blur">
+<img data-src="img5.jpg" src="5.jpg" class="blur">
+<img data-src="img6.jpg" src="6.jpg" class="blur">
+<img data-src="img7.jpg" src="7.jpg" class="blur">
+
+                
+
+
+<script>
+	document.addEventListener('scroll', lazyLoad, false)
+
+function lazyLoad() {
+	let lazyList = document.querySelectorAll('.blur')
+	for (let lazy of lazyList) {
+		alert(lazy.hasAttribute('data-src'))
+		if (lazy.hasAttribute('data-src')) {
+			console.log(lazy, '-----------')
+			let data = lazy.getAttribute('data-src');
+			console.log(data);
+			lazy.setAttribute('src', data);
+			alert(lazy.getAttribute('src'))
+			lazy.src = data;
+			alert(lazy.getAttribute('src'))
+		}
+		document.removeEventListener('scroll', lazyLoad)
+	}
+}
+
+
+
+</script>
+
+</body>
+</html>
